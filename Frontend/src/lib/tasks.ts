@@ -1,7 +1,6 @@
 import axios from "axios"
 import type { Task } from "./interfaces"
-
-const API_BASE = "http://localhost:8000/api"
+import { API_BASE } from "./config"
 
 export const getTasks = async (accessToken: string): Promise<Task[]> => {
     const res = await axios.get(`${API_BASE}/tasks/`, {

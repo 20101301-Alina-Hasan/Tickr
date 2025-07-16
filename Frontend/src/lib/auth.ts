@@ -1,7 +1,6 @@
 import axios from "axios"
 import type { LoginCredentials, SignupCredentials, LoginResponse } from "./interfaces"
-
-const API_BASE = "http://localhost:8000/api"
+import { API_BASE } from "./config"
 
 export const login = async ({ username, password }: LoginCredentials): Promise<LoginResponse> => {
     const response = await axios.post(`${API_BASE}/token/`, {
