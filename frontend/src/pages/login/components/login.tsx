@@ -38,8 +38,8 @@ export const LoginForm: React.FC<React.ComponentProps<"div">> = ({
 
             navigate("/dashboard")
         } catch (error: unknown) {
-            console.error("Login error:", error)
-            setError("Invalid credentials. Please try again.")
+            console.error("Login Error:", error)
+            setError("Invalid credentials. Please try again.");
         }
     }
 
@@ -60,7 +60,7 @@ export const LoginForm: React.FC<React.ComponentProps<"div">> = ({
                                 <Input
                                     id="username"
                                     type="username"
-                                    placeholder="todo@example.com"
+                                    placeholder="john.doe@example.com"
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
                                     required
@@ -89,7 +89,7 @@ export const LoginForm: React.FC<React.ComponentProps<"div">> = ({
                         </div>
                         <div className="mt-4 text-center text-sm">
                             Don&apos;t have an account?{" "}
-                            <Link to="/register" className="underline underline-offset-4 text-primary hover:underline">
+                            <Link to="/signup" className="underline underline-offset-4 text-primary hover:underline">
                                 Sign up
                             </Link>
                         </div>
