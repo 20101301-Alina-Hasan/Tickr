@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import axios, { AxiosError } from "axios"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Card, CardContent } from "@/components/ui/card"
@@ -16,6 +15,14 @@ import {
 import { Plus, X, CheckCheck } from "lucide-react"
 import type { Task } from "./interfaces"
 import { useNavigate } from "react-router-dom"
+import {
+    getTasks,
+    toggleTaskStatus,
+    deleteTask,
+    createTask,
+    updateTask,
+} from "@/lib/tasks"
+
 
 export const Dashboard = () => {
     const [tasks, setTasks] = useState<Task[]>([])
@@ -28,84 +35,67 @@ export const Dashboard = () => {
     const navigate = useNavigate()
     const accessToken = localStorage.getItem("access")
 
-    const handleLogout = () => {
+    const logout = () => {
         localStorage.removeItem("access")
         navigate("/login")
     }
 
-    const fetchTasks = async () => {
+    const fetchAll = async () => {
         try {
-            const res = await axios.get("http://localhost:8000/api/tasks/", {
-                headers: { Authorization: `Bearer ${accessToken}` },
-            })
-            setTasks(res.data)
+            const data = await getTasks(accessToken!)
+            setTasks(data)
         } catch (err) {
             console.error("Failed to load tasks", err)
         }
     }
 
-    const toggleStatus = async (task: Task) => {
-        const updatedStatus = task.status === "COMPLETE" ? "PENDING" : "COMPLETE"
+    const toggle = async (task: Task) => {
         try {
-            await axios.patch(
-                `http://localhost:8000/api/task/${task.id}/`,
-                { status: updatedStatus },
-                { headers: { Authorization: `Bearer ${accessToken}` } }
-            )
-            fetchTasks()
-        } catch (err: unknown) {
-            const error = err as AxiosError
-            console.error("Failed to toggle status:", error.response?.data || error.message)
+            await toggleTaskStatus(task, accessToken!)
+            fetchAll()
+        } catch (err) {
+            console.error("Failed to toggle status", err)
         }
     }
 
-    const deleteTask = async (id: number) => {
+    const destroy = async (id: number) => {
         try {
-            await axios.delete(`http://localhost:8000/api/task/${id}/`, {
-                headers: { Authorization: `Bearer ${accessToken}` },
-            })
+            await deleteTask(id, accessToken!)
             setSelectedTaskId(null)
-            fetchTasks()
+            fetchAll()
         } catch (err) {
             console.error("Failed to delete task", err)
         }
     }
 
-    const createTask = async () => {
+    const add = async () => {
         if (!newTitle.trim() || !newDueDate) return
         try {
-            await axios.post(
-                "http://localhost:8000/api/task/",
-                { title: newTitle, description: newDesc, due_date: newDueDate },
-                { headers: { Authorization: `Bearer ${accessToken}` } }
-            )
+            await createTask(newTitle, newDesc, newDueDate, accessToken!)
             setNewTitle("")
             setNewDesc("")
             setNewDueDate("")
             setShowCreateForm(false)
-            fetchTasks()
+            fetchAll()
         } catch (err) {
             console.error("Failed to create task", err)
         }
     }
 
-    const updateTask = async (task: Task) => {
+    const update = async (task: Task) => {
         try {
-            await axios.put(
-                `http://localhost:8000/api/task/${task.id}/`,
-                task,
-                { headers: { Authorization: `Bearer ${accessToken}` } }
-            )
+            await updateTask(task, accessToken!)
             setSelectedTaskId(null)
-            fetchTasks()
+            fetchAll()
         } catch (err) {
             console.error("Failed to update task", err)
         }
     }
 
+
     useEffect(() => {
-        fetchTasks()
-    }, [])
+        fetchAll()
+    }, [fetchAll])
 
     const selectedTask = tasks.find((t) => t.id === selectedTaskId)
 
@@ -117,7 +107,7 @@ export const Dashboard = () => {
                     <span className="text-2xl font-bold">Tickr</span>
                 </div>
                 <div className="absolute right-6">
-                    <Button variant="outline" onClick={handleLogout}>
+                    <Button variant="outline" onClick={logout}>
                         Logout
                     </Button>
                 </div>
@@ -181,7 +171,7 @@ export const Dashboard = () => {
                                 />
                             </div>
                             <Button
-                                onClick={createTask}
+                                onClick={add}
                                 disabled={!newTitle.trim() || !newDueDate}
                                 className="w-full"
                             >
@@ -204,7 +194,7 @@ export const Dashboard = () => {
                                 <div className="flex items-center gap-3">
                                     <Checkbox
                                         checked={task.status === "COMPLETE"}
-                                        onCheckedChange={() => toggleStatus(task)}
+                                        onCheckedChange={() => toggle(task)}
                                     />
                                     <Card
                                         className={`flex-1 cursor-pointer hover:border-primary ${selectedTaskId === task.id ? "border-primary bg-muted/50" : ""
@@ -275,10 +265,10 @@ export const Dashboard = () => {
                                                 />
                                             </div>
                                             <div className="flex justify-between">
-                                                <Button variant="destructive" onClick={() => deleteTask(task.id)} size="sm">
+                                                <Button variant="destructive" onClick={() => destroy(task.id)} size="sm">
                                                     Delete
                                                 </Button>
-                                                <Button onClick={() => updateTask(selectedTask)} size="sm">
+                                                <Button onClick={() => update(selectedTask)} size="sm">
                                                     Save
                                                 </Button>
                                             </div>

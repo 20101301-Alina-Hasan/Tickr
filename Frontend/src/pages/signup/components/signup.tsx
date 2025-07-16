@@ -24,7 +24,7 @@ export const SignupForm: React.FC<React.ComponentProps<"div">> = ({
     const [error, setError] = useState("")
     const navigate = useNavigate()
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const submit = async (e: React.FormEvent) => {
         e.preventDefault()
         setError("")
 
@@ -56,7 +56,7 @@ export const SignupForm: React.FC<React.ComponentProps<"div">> = ({
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={submit}>
                         <div className="flex flex-col gap-6">
                             <div className="grid gap-3">
                                 <Label htmlFor="username">Username</Label>
