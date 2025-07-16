@@ -13,7 +13,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import { Plus, X } from "lucide-react"
+import { Plus, X, CheckCheck } from "lucide-react"
 import type { Task } from "./interfaces"
 import { useNavigate } from "react-router-dom"
 
@@ -111,11 +111,16 @@ export const Dashboard = () => {
 
     return (
         <>
-            <nav className="sticky top-0 z-50 bg-white border-b flex items-center justify-between px-6 py-3 shadow-sm">
-                <span className="font-bold text-lg">To-Do App</span>
-                <Button variant="outline" onClick={handleLogout}>
-                    Logout
-                </Button>
+            <nav className="sticky top-0 z-50 bg-white border-b px-6 py-3 shadow-sm flex justify-between items-center">
+                <div className="flex-1 flex justify-center items-center gap-2">
+                    <CheckCheck className="w-6 h-6 text-primary" />
+                    <span className="text-2xl font-bold">Tickr</span>
+                </div>
+                <div className="absolute right-6">
+                    <Button variant="outline" onClick={handleLogout}>
+                        Logout
+                    </Button>
+                </div>
             </nav>
             <div className="max-w-2xl mx-auto p-6">
                 {/* Header */}

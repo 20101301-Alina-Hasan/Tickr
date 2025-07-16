@@ -54,9 +54,9 @@ export const SignupForm: React.FC<React.ComponentProps<"div">> = ({
         <div className={cn("flex flex-col gap-6", className)} {...props}>
             <Card>
                 <CardHeader>
-                    <CardTitle>Create your account</CardTitle>
+                    <CardTitle>Create your own Tickr account</CardTitle>
                     <CardDescription>
-                        Enter your details and start managing your tasks
+                        Enter your credentials and start managing today
                     </CardDescription>
                 </CardHeader>
                 <CardContent>

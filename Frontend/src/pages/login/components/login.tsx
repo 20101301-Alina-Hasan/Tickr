@@ -47,9 +47,9 @@ export const LoginForm: React.FC<React.ComponentProps<"div">> = ({
         <div className={cn("flex flex-col gap-6", className)} {...props}>
             <Card>
                 <CardHeader>
-                    <CardTitle>Login to your account</CardTitle>
+                    <CardTitle>Login to your Tickr account</CardTitle>
                     <CardDescription>
-                        Enter your username and password to login to your account
+                        Enter your username and password
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
