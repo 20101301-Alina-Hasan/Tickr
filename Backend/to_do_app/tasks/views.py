@@ -2,14 +2,11 @@ from rest_framework import generics, permissions
 from django.contrib.auth.models import User
 from .models import Task
 from .serializers import RegisterSerializer, UserSerializer, TaskSerializer
-
-## Remove later ######################
 from django.shortcuts import render
 from django.http import HttpResponse
 
-def tasks(request):
-    return HttpResponse("Hello world!")
-#######################################
+def home(request):
+    return HttpResponse("Welcome to homepage")
 
 class UserListView(generics.ListAPIView):
     queryset = User.objects.all()
