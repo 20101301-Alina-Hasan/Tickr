@@ -44,34 +44,46 @@ Clone the repository:
 ### Django Backend Setup
 
 1. Navigate to the Backend folder then, create and activate a virtual environment:
+
    ```bash
    python -m venv venv
    venv\Scripts\activate.bat
    ```
+
 2. Install required packages:
+
    ```bash
    pip install Django djangorestframework djangorestframework-simplejwt django-cors-headers
    ```
+
 3. Run database migrations:
+
    ```bash
    python manage.py migrate
    ```
+
 4. Start the development server:
+
    ```bash
    python manage.py runserver
    ```
+
 5. Backend API will be available at `http://localhost:8000/api/`
 
 ### React Frontend Setup via Vite
 
 1.  Navigate to the Frontend folder and Install dependencies:
+
     ```bash
     npm install
     ```
+
 2.  Start the development server:
+
     ```bash
     npm run dev
     ```
+
 3.  Open your browser and visit `http://localhost:5173` (or the whatever port is shown on your terminal)
 
 ## Functionalities
