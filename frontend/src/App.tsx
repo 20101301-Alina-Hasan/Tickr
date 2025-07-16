@@ -1,12 +1,17 @@
 import './App.css'
-
-import { Button } from "@/components/ui/button"
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
+import { Login } from './route'
 
 function App() {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center">
-      <Button className="hover:cursor-pointer">Click me</Button>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Login />} />
+        {/* <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} /> */}
+      </Routes>
+    </Router>
   )
 }
 
