@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Card, CardContent } from "@/components/ui/card"
@@ -40,14 +40,14 @@ export const Dashboard = () => {
         navigate("/login")
     }
 
-    const fetchAll = async () => {
+    const fetchAll = useCallback(async () => {
         try {
             const data = await getTasks(accessToken!)
             setTasks(data)
         } catch (err) {
             console.error("Failed to load tasks", err)
         }
-    }
+    }, [accessToken])
 
     const toggle = async (task: Task) => {
         try {
