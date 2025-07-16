@@ -1,6 +1,5 @@
 from django.urls import path
 from .views import RegisterView, TaskCreateView, TaskListView, TaskRetrieveUpdateDestroy
-# from .views import RegisterView, TaskListCreate, TaskRetrieveUpdateDestroy
 
 urlpatterns = [
     path('register/', RegisterView.as_view(), name='register'),
