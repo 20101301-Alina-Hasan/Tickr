@@ -8,13 +8,12 @@ Tickr is a full-stack To-Do application built with a Django-backend and React-fr
 
 ## Features
 
-- User Registration and Login with JWT Authentication
-- Create, Read, Update, Delete tasks
-- Task attributes: Title, Description, Due Date, Status (PENDING / COMPLETE)
-- Task filtering by status (All, PENDING, COMPLETE)
-- Protected routing so only logged-in users can access their to-do list
-- Intuitive UI with status toggle checkboxes and editable task details
-- Validation to prevent task creation without Title and/or Due Date
+- Register a new user or login with existing credentials.
+- Create new tasks by providing a title, description, and due date.
+- Toggle task completion status using the checkboxes.
+- Edit or delete tasks by clicking on a task to view details.
+- Filter tasks using the dropdown filter to see All, Pending, or Completed tasks.
+- Logout when done to secure your session.
 
 ---
 
@@ -25,6 +24,13 @@ Tickr is a full-stack To-Do application built with a Django-backend and React-fr
 - **Frontend:** React, Vite, Tailwind CSS, shadcn/ui, lucide-react, axios
 - **API:** RESTful
 - **Documentation:** Postman (published [here](https://documenter.getpostman.com/view/39531698/2sB34ijKF1))
+
+---
+
+## API Documentation
+
+Full API documentation is available on Postman:  
+[https://documenter.getpostman.com/view/39531698/2sB34ijKF1](https://documenter.getpostman.com/view/39531698/2sB34ijKF1)
 
 ---
 
@@ -85,27 +91,6 @@ Clone the repository:
     ```
 
 3.  Open your browser and visit `http://localhost:5173` (or the whatever port is shown on your terminal)
-
-## Functionalities
-
-- Register a new user or login with existing credentials.
-- Create new tasks by providing a title, description, and due date.
-- Toggle task completion status using the checkboxes.
-- Edit or delete tasks by clicking on a task to view details.
-- Filter tasks using the dropdown filter to see All, Pending, or Completed tasks.
-- Logout when done to secure your session.
-
-## Notes
-
-- The app uses SQLite for simplicity, but can be configured to use PostgreSQL.
-- JWT tokens are used for secure authentication and authorization.
-- Only authenticated users can manage their own tasks.
-- Validation prevents creation of tasks without required fields.
-
-## API Documentation
-
-Full API documentation is available on Postman:  
-[https://documenter.getpostman.com/view/39531698/2sB34ijKF1](https://documenter.getpostman.com/view/39531698/2sB34ijKF1)
 
 ## License
 
