@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 
-export const Login: React.FC<React.ComponentProps<"div">> = ({
+export const LoginForm: React.FC<React.ComponentProps<"div">> = ({
     className,
     ...props
 }) => {
