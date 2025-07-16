@@ -1,5 +1,4 @@
 import { useState } from "react"
-import axios from "axios"
 import { useNavigate, Link } from "react-router-dom"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -12,6 +11,7 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { login } from "@/lib/auth"
 
 
 export const LoginForm: React.FC<React.ComponentProps<"div">> = ({
@@ -23,23 +23,16 @@ export const LoginForm: React.FC<React.ComponentProps<"div">> = ({
     const [error, setError] = useState("")
     const navigate = useNavigate()
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const submit = async (e: React.FormEvent) => {
         e.preventDefault()
         setError("")
 
         try {
-            const res = await axios.post("http://localhost:8000/api/token/", {
-                username,
-                password,
-            })
-
-            localStorage.setItem("access", res.data.access)
-            localStorage.setItem("refresh", res.data.refresh)
-
+            await login(username, password)
             navigate("/dashboard")
-        } catch (error: unknown) {
+        } catch (error) {
             console.error("Login Error:", error)
-            setError("Invalid credentials. Please try again.");
+            setError("Invalid credentials. Please try again.")
         }
     }
 
@@ -53,7 +46,7 @@ export const LoginForm: React.FC<React.ComponentProps<"div">> = ({
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={submit}>
                         <div className="flex flex-col gap-6">
                             <div className="grid gap-3">
                                 <Label htmlFor="username">Username</Label>

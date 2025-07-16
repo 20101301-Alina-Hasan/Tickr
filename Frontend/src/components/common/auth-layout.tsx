@@ -1,8 +1,5 @@
 import { CheckCheck } from "lucide-react"
-
-interface AuthLayoutProps {
-    children: React.ReactNode
-}
+import type { AuthLayoutProps } from "./interfaces"
 
 export const AuthLayout = ({ children }: AuthLayoutProps) => (
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">

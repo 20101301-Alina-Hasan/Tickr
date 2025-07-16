@@ -1,4 +1,4 @@
-import { AuthLayout } from "../shared"
+import { AuthLayout } from "@/components/common"
 import { LoginForm } from "./components"
 
 export const Login = () => {

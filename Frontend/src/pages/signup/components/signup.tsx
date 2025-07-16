@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { signup } from "@/lib/auth"
 
 export const SignupForm: React.FC<React.ComponentProps<"div">> = ({
     className,
@@ -28,12 +29,7 @@ export const SignupForm: React.FC<React.ComponentProps<"div">> = ({
         setError("")
 
         try {
-            await axios.post("http://localhost:8000/api/register/", {
-                username,
-                email,
-                password,
-            })
-
+            await signup(username, email, password)
             navigate("/login")
         } catch (error: unknown) {
             console.error("Signup error:", error)
