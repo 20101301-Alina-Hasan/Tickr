@@ -28,7 +28,7 @@ export const LoginForm: React.FC<React.ComponentProps<"div">> = ({
         setError("")
 
         try {
-            await login(username, password)
+            await login({ username, password })
             navigate("/dashboard")
         } catch (error) {
             console.error("Login Error:", error)

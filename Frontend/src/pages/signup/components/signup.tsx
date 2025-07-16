@@ -29,7 +29,7 @@ export const SignupForm: React.FC<React.ComponentProps<"div">> = ({
         setError("")
 
         try {
-            await signup(username, email, password)
+            await signup({ username, email, password })
             navigate("/login")
         } catch (error: unknown) {
             console.error("Signup error:", error)

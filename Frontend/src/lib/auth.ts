@@ -1,6 +1,7 @@
 import axios from "axios"
+import type { LoginCredentials, SignupCredentials, LoginResponse } from "./interfaces"
 
-export const login = async (username: string, password: string) => {
+export const login = async ({ username, password }: LoginCredentials): Promise<LoginResponse> => {
     const response = await axios.post("http://localhost:8000/api/token/", {
         username,
         password,
@@ -14,11 +15,7 @@ export const login = async (username: string, password: string) => {
     return { access, refresh }
 }
 
-export const signup = async (
-    username: string,
-    email: string,
-    password: string
-): Promise<void> => {
+export const signup = async ({ username, email, password }: SignupCredentials): Promise<void> => {
     await axios.post("http://localhost:8000/api/register/", {
         username,
         email,
