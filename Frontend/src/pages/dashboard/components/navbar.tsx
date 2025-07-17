@@ -12,7 +12,9 @@ export const Navbar = () => {
 
     return (<nav className="sticky top-0 z-50 bg-white border-b px-6 py-3 shadow-sm flex justify-between items-center">
         <div className="flex-1 flex justify-center items-center gap-2">
-            <CheckCheck className="w-6 h-6 text-primary" />
+            <div className="size-8 flex items-center justify-center ring-2 ring-border rounded-md">
+                <CheckCheck className="size-4 text-primary" />
+            </div>
             <span className="text-2xl font-bold">Tickr</span>
         </div>
         <div className="absolute right-6">

@@ -41,7 +41,7 @@ export const DatePicker = ({ value, onChange, label = "Due Date" }: DatePickerPr
                         if (!isNaN(newDate.getTime())) {
                             setDate(newDate)
                             setMonth(newDate)
-                            onChange(newDate.toISOString().split("T")[0]) // Pass ISO date string to parent
+                            onChange(newDate.toISOString().split("T")[0])
                         }
                     }}
                     onKeyDown={(e) => {
