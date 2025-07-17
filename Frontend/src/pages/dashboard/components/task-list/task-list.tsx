@@ -28,7 +28,7 @@ export const TaskList = ({
                                 setSelectedTaskId(selectedTaskId === task.id ? null : task.id)
                             }
                         />
-                        {selectedTask && (
+                        {selectedTaskId === task.id && selectedTask && (
                             <EditTaskForm
                                 task={selectedTask}
                                 setTasks={setTasks}
