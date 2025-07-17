@@ -1,4 +1,4 @@
-# Tickr - To-Do Application
+# Tickr - Another To-Do Application
 
 ## Overview
 
