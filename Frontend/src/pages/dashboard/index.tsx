@@ -9,6 +9,8 @@ import {
 } from "@/lib/tasks"
 import { Header, AddTaskForm, TaskList } from "./components"
 import { Navbar } from "./components/navbar"
+import { toast } from "sonner"
+
 
 export const Dashboard = () => {
     const [tasks, setTasks] = useState<Task[]>([])
@@ -25,8 +27,9 @@ export const Dashboard = () => {
         try {
             const data = await getTasks(accessToken!)
             setTasks(data)
-        } catch (err) {
-            console.error("Failed to load tasks", err)
+        } catch (error) {
+            console.error("Failed to load tasks", error)
+            toast.error("Could not load tasks. Please try again later.")
         }
     }, [accessToken])
 
@@ -34,8 +37,10 @@ export const Dashboard = () => {
         try {
             await toggleTaskStatus(task, accessToken!)
             fetchAll()
-        } catch (err) {
-            console.error("Failed to toggle status", err)
+            toast.success(`Marked "${task.title}" as ${task.status === "COMPLETE" ? "pending" : "complete"}.`)
+        } catch (error) {
+            console.error("Failed to toggle status", error)
+            toast.error("Could not update task status. Please try again later.")
         }
     }
 
@@ -44,8 +49,10 @@ export const Dashboard = () => {
             await deleteTask(id, accessToken!)
             setSelectedTaskId(null)
             fetchAll()
-        } catch (err) {
-            console.error("Failed to delete task", err)
+            toast.success("Task deleted successfully!")
+        } catch (error) {
+            console.error("Failed to delete task", error)
+            toast.error("Could not delete task. Please try again later.")
         }
     }
 
@@ -58,8 +65,10 @@ export const Dashboard = () => {
             setNewDueDate("")
             setShowCreateForm(false)
             fetchAll()
-        } catch (err) {
-            console.error("Failed to create task", err)
+            toast.success("New task added successfully!")
+        } catch (error) {
+            console.error("Failed to create task", error)
+            toast.error("Could not create task. Please try again later.")
         }
     }
 
@@ -68,8 +77,10 @@ export const Dashboard = () => {
             await updateTask(task, accessToken!)
             setSelectedTaskId(null)
             fetchAll()
-        } catch (err) {
-            console.error("Failed to update task", err)
+            toast.success("Task updated successfully!")
+        } catch (error) {
+            console.error("Failed to update task", error)
+            toast.error("Could not update task. Please try again later.")
         }
     }
 
