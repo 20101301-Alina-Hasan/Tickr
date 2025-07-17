@@ -14,21 +14,17 @@ export const TaskCard = ({ task, isSelected, toggle, onSelect }: TaskCardProps) 
                     }`}
                 onClick={onSelect}
             >
-                <CardContent>
-                    <div className="flex items-center justify-between">
-                        <div className="flex-1 min-w-0">
-                            <h3
-                                className={`font-medium truncate ${task.status === "COMPLETE"
-                                    ? "line-through text-muted-foreground"
-                                    : ""
-                                    }`}
-                            >
-                                {task.title}
-                            </h3>
-                            <p className="text-sm text-muted-foreground">
-                                Due: {new Date(task.due_date).toLocaleDateString()}
-                            </p>
-                        </div>
+                <CardContent className="flex justify-between items-center">
+                    <div
+                        className={`font-medium truncate max-w-[70%] ${task.status === "COMPLETE"
+                            ? "line-through text-muted-foreground"
+                            : ""
+                            }`}
+                    >
+                        {task.title}
+                    </div>
+                    <div className="text-sm text-muted-foreground whitespace-nowrap">
+                        {new Date(task.due_date).toLocaleDateString()}
                     </div>
                 </CardContent>
             </Card>

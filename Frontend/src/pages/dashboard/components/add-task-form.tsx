@@ -49,7 +49,7 @@ export const AddTaskForm = ({
                         />
                     </div>
                     <Button onClick={onSubmit} disabled={isDisabled} className="w-full">
-                        Add Task
+                        Create
                     </Button>
                 </CardContent>
             </Card>
