@@ -45,7 +45,7 @@ Screenshots demonstrating app functionality are available in the `Screenshots` f
 
 Clone the repository:
 ```bash
-	  git clone https://github.com/20101301-Alina-Hasan/Tickr.git
+git clone https://github.com/20101301-Alina-Hasan/Tickr.git
    ```
    
 ### Django Backend Setup
