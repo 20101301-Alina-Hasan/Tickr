@@ -12,6 +12,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { login } from "@/lib/auth"
+import { toast } from "sonner"
 
 
 export const LoginForm: React.FC<React.ComponentProps<"div">> = ({
@@ -30,6 +31,7 @@ export const LoginForm: React.FC<React.ComponentProps<"div">> = ({
         try {
             await login({ username, password })
             navigate("/dashboard")
+            toast.success("Login successful!")
         } catch (error) {
             console.error("Login Error:", error)
             setError("Invalid credentials. Please try again.")

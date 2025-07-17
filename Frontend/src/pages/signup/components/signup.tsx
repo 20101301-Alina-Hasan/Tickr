@@ -13,6 +13,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { signup } from "@/lib/auth"
+import { toast } from "sonner"
 
 export const SignupForm: React.FC<React.ComponentProps<"div">> = ({
     className,
@@ -31,6 +32,7 @@ export const SignupForm: React.FC<React.ComponentProps<"div">> = ({
         try {
             await signup({ username, email, password })
             navigate("/login")
+            toast.success("Account created successfully!")
         } catch (error: unknown) {
             console.error("Signup error:", error)
             if (axios.isAxiosError(error) && error.response?.status === 400) {
