@@ -2,7 +2,6 @@ import type { TaskListProps } from "@/lib/interfaces"
 import { TaskCard } from "./task-card"
 import { EditTaskForm } from "./edit-task-form"
 
-
 export const TaskList = ({
     tasks,
     filter,
@@ -19,7 +18,7 @@ export const TaskList = ({
             {tasks
                 .filter((task) => filter === "ALL" || task.status === filter)
                 .map((task) => (
-                    <div key={task.id}>
+                    <div key={task.id} className="space-y-0">
                         <TaskCard
                             task={task}
                             isSelected={selectedTaskId === task.id}

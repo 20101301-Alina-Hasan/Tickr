@@ -4,31 +4,29 @@ import type { TaskCardProps } from "./interfaces"
 
 export const TaskCard = ({ task, isSelected, toggle, onSelect }: TaskCardProps) => {
     return (
-        <div className="flex items-center gap-3">
-            <Checkbox
-                checked={task.status === "COMPLETE"}
-                onCheckedChange={() => toggle(task)}
-            />
+        <div className="flex items-center gap-2">
             <Card
-                className={`flex-1 cursor-pointer hover:border-primary ${isSelected ? "border-primary bg-muted/50" : ""
+                className={`flex-1 cursor-pointer hover:border-primary z-10 ${isSelected ? "border-primary bg-accent-foreground text-accent scale-[1.01] rounded-b-none" : ""
                     }`}
                 onClick={onSelect}
             >
-                <CardContent className="p-3">
-                    <div className="flex items-center justify-between">
-                        <div className="flex-1 min-w-0">
-                            <h3
-                                className={`font-medium truncate ${task.status === "COMPLETE"
-                                    ? "line-through text-muted-foreground"
-                                    : ""
-                                    }`}
-                            >
-                                {task.title}
-                            </h3>
-                            <p className="text-sm text-muted-foreground">
-                                Due: {new Date(task.due_date).toLocaleDateString()}
-                            </p>
+                <CardContent className="flex justify-between items-center">
+                    <div className="flex items-center gap-4 max-w-[70%]">
+                        <Checkbox
+                            checked={task.status === "COMPLETE"}
+                            onCheckedChange={() => toggle(task)}
+                            onClick={(e) => e.stopPropagation()}
+                            className={`w-5 h-5 hover:cursor-pointer ${isSelected ? "ring-1 ring-accent" : ""}`}
+                        />
+                        <div
+                            className={`font-medium truncate ${task.status === "COMPLETE" ? "line-through text-muted-foreground" : ""
+                                }`}
+                        >
+                            {task.title}
                         </div>
+                    </div>
+                    <div className="text-sm text-muted-foreground whitespace-nowrap">
+                        {new Date(task.due_date).toLocaleDateString()}
                     </div>
                 </CardContent>
             </Card>

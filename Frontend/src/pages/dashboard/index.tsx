@@ -78,12 +78,14 @@ export const Dashboard = () => {
     }, [fetchAll])
 
     const selectedTask = tasks.find((t) => t.id === selectedTaskId)
+    const username = localStorage.getItem('username')
 
     return (
         <>
             <Navbar />
             <div className="max-w-2xl mx-auto p-6">
                 <Header
+                    username={username!}
                     filter={filter}
                     setFilter={setFilter}
                     showCreateForm={showCreateForm}

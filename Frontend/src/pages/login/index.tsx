@@ -1,4 +1,4 @@
-import { AuthLayout } from "@/components/common"
+import { AuthLayout } from "@/components/common/auth-layout"
 import { LoginForm } from "./components"
 
 export const Login = () => {
