@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { CheckCheck } from "lucide-react"
+import { toast } from "sonner"
 
 export const Navbar = () => {
     const navigate = useNavigate()
@@ -8,6 +9,7 @@ export const Navbar = () => {
     const logout = () => {
         localStorage.removeItem("access")
         navigate("/login")
+        toast.success("You've been logged out successfully!")
     }
 
     return (<nav className="sticky top-0 z-50 bg-white border-b px-6 py-3 shadow-sm flex justify-between items-center">
