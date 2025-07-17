@@ -14,3 +14,4 @@ export interface EditTaskFormProps {
     onSave: () => void
     onAnimate?: boolean
 }
+

@@ -1,3 +1,4 @@
+import { DatePicker } from "@/components/common"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -40,14 +41,11 @@ export const AddTaskForm = ({
                             onChange={(e) => setNewDesc(e.target.value)}
                         />
                     </div>
-                    <div className="space-y-2">
-                        <Label>Due Date</Label>
-                        <Input
-                            type="date"
-                            value={newDueDate}
-                            onChange={(e) => setNewDueDate(e.target.value)}
-                        />
-                    </div>
+                    <DatePicker
+                        value={newDueDate}
+                        onChange={setNewDueDate}
+                        label="Due Date"
+                    />
                     <Button onClick={onSubmit} disabled={isDisabled} className="w-full">
                         Create
                     </Button>

@@ -1,3 +1,4 @@
+import { DatePicker } from "@/components/common"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -42,14 +43,12 @@ export const EditTaskForm = ({
                     />
                 </div>
                 <div className="space-y-2">
-                    <Label>Due Date</Label>
-                    <Input
-                        type="date"
+                    <DatePicker
                         value={task.due_date}
-                        onChange={(e) =>
+                        onChange={(newDate) =>
                             setTasks((prev) =>
                                 prev.map((t) =>
-                                    t.id === task.id ? { ...t, due_date: e.target.value } : t
+                                    t.id === task.id ? { ...t, due_date: newDate } : t
                                 )
                             )
                         }
