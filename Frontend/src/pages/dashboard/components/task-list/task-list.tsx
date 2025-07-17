@@ -18,7 +18,7 @@ export const TaskList = ({
             {tasks
                 .filter((task) => filter === "ALL" || task.status === filter)
                 .map((task) => (
-                    <div key={task.id}>
+                    <div key={task.id} className="ml-7 space-y-0 relative">
                         <TaskCard
                             task={task}
                             isSelected={selectedTaskId === task.id}

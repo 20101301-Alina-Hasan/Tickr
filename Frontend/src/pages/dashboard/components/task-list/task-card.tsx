@@ -10,11 +10,11 @@ export const TaskCard = ({ task, isSelected, toggle, onSelect }: TaskCardProps) 
                 onCheckedChange={() => toggle(task)}
             />
             <Card
-                className={`flex-1 cursor-pointer hover:border-primary ${isSelected ? "border-primary bg-muted/50" : ""
+                className={`flex-1 cursor-pointer hover:border-primary z-10 ${isSelected ? "border-primary bg-muted/50 shadow-md scale-[1.01]" : ""
                     }`}
                 onClick={onSelect}
             >
-                <CardContent className="p-3">
+                <CardContent>
                     <div className="flex items-center justify-between">
                         <div className="flex-1 min-w-0">
                             <h3

@@ -12,8 +12,8 @@ export const EditTaskForm = ({
     onSave,
 }: EditTaskFormProps) => {
     return (
-        <Card className="ml-9 mt-2 animate-fade-in">
-            <CardContent className="p-4 space-y-4">
+        <Card className="z-0 -mt-6 ml-7 rounded-t-none border-t-0 animate-slide-down">
+            <CardContent className="p-4 space-y-6">
                 <div className="space-y-2">
                     <Label>Title</Label>
                     <Input
@@ -55,10 +55,10 @@ export const EditTaskForm = ({
                     />
                 </div>
                 <div className="flex justify-between">
-                    <Button variant="destructive" onClick={onDelete} size="sm">
+                    <Button variant="destructive" onClick={onDelete} size="lg" className="hover:cursor-pointer">
                         Delete
                     </Button>
-                    <Button onClick={onSave} size="sm">
+                    <Button onClick={onSave} size="lg" className="hover:cursor-pointer">
                         Save
                     </Button>
                 </div>
