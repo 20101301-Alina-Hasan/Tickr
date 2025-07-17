@@ -1,3 +1,4 @@
+
 # Tickr - Another To-Do Application
 
 ## Overview
@@ -43,11 +44,10 @@ Screenshots demonstrating app functionality are available in the `Screenshots` f
 ## Deployment Instructions
 
 Clone the repository:
-
-    ```bash
-git clone https://github.com/20101301-Alina-Hasan/Tickr.git
+```bash
+	  git clone https://github.com/20101301-Alina-Hasan/Tickr.git
    ```
-
+   
 ### Django Backend Setup
 
 1. Navigate to the Backend folder then, create and activate a virtual environment:
