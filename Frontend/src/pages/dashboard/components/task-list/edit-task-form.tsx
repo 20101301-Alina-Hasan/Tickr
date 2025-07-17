@@ -61,7 +61,7 @@ export const EditTaskForm = ({
                         onClick={onSave}
                         className="hover:cursor-pointer"
                     >
-                        <Save className="size-5" />
+                        <Save className="size-4" />
                     </Button>
                     <Button
                         variant="destructive"
@@ -69,7 +69,7 @@ export const EditTaskForm = ({
                         onClick={onDelete}
                         className="hover:cursor-pointer"
                     >
-                        <Trash2 className="size-5" />
+                        <Trash2 className="size-4" />
                     </Button>
                 </div>
             </CardContent>

@@ -16,7 +16,7 @@ export const TaskCard = ({ task, isSelected, toggle, onSelect }: TaskCardProps) 
                             checked={task.status === "COMPLETE"}
                             onCheckedChange={() => toggle(task)}
                             onClick={(e) => e.stopPropagation()}
-                            className={`w-6 h-6 hover:cursor-pointer ${isSelected ? "ring-2 ring-accent" : ""}`}
+                            className={`w-5 h-5 hover:cursor-pointer ${isSelected ? "ring-1 ring-accent" : ""}`}
                         />
                         <div
                             className={`font-medium truncate ${task.status === "COMPLETE" ? "line-through text-muted-foreground" : ""

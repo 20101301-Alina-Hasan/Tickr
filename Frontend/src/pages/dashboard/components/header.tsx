@@ -25,8 +25,8 @@ export const Header = ({ filter, setFilter, showCreateForm, setShowCreateForm }:
                     </Select>
                     <Button
                         onClick={() => setShowCreateForm(!showCreateForm)}
-                        size="sm"
-                        className="h-8 w-8"
+                        size="icon"
+                        className="size-8 hover:cursor-pointer"
                         variant={showCreateForm ? "secondary" : "default"}
                     >
                         {showCreateForm ? <X className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
