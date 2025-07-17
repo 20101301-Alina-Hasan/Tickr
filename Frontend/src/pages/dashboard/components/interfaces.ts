@@ -1,6 +1,7 @@
 export type FilterType = "ALL" | "PENDING" | "COMPLETE"
 
 export interface HeaderProps {
+    username: string
     filter: FilterType
     setFilter: (val: FilterType) => void
     showCreateForm: boolean

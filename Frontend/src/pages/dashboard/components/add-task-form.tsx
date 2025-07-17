@@ -1,9 +1,11 @@
+import { DatePicker } from "@/components/common"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import type { AddTaskFormProps } from "./interfaces"
+import { Separator } from "@/components/ui/separator"
 
 export const AddTaskForm = ({
     newTitle,
@@ -20,36 +22,36 @@ export const AddTaskForm = ({
     const isDisabled = !newTitle.trim() || !newDueDate
 
     return (
-        <Card className="mb-6 animate-fade-in">
-            <CardContent className="p-4 space-y-3">
-                <div className="space-y-2">
-                    <Label>Title</Label>
-                    <Input
-                        placeholder="Title"
-                        value={newTitle}
-                        onChange={(e) => setNewTitle(e.target.value)}
-                    />
-                </div>
-                <div className="space-y-2">
-                    <Label>Description</Label>
-                    <Textarea
-                        placeholder="Description"
-                        value={newDesc}
-                        onChange={(e) => setNewDesc(e.target.value)}
-                    />
-                </div>
-                <div className="space-y-2">
-                    <Label>Due Date</Label>
-                    <Input
-                        type="date"
+        <>
+            <Card className="">
+                <CardContent className="px-6  space-y-6">
+                    <div className="space-y-2">
+                        <Label>Title</Label>
+                        <Input
+                            placeholder="What do you wanna do?"
+                            value={newTitle}
+                            onChange={(e) => setNewTitle(e.target.value)}
+                        />
+                    </div>
+                    <div className="space-y-2">
+                        <Label>Description</Label>
+                        <Textarea
+                            placeholder="Add some details..."
+                            value={newDesc}
+                            onChange={(e) => setNewDesc(e.target.value)}
+                        />
+                    </div>
+                    <DatePicker
                         value={newDueDate}
-                        onChange={(e) => setNewDueDate(e.target.value)}
+                        onChange={setNewDueDate}
+                        label="Due Date"
                     />
-                </div>
-                <Button onClick={onSubmit} disabled={isDisabled} className="w-full">
-                    Add Task
-                </Button>
-            </CardContent>
-        </Card>
+                    <Button onClick={onSubmit} disabled={isDisabled} className="w-full text-md hover: cursor-pointer" size="lg">
+                        Create
+                    </Button>
+                </CardContent>
+            </Card>
+            <Separator className="my-4" />
+        </>
     )
 }

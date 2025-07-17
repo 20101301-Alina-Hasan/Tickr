@@ -12,6 +12,7 @@ export const login = async ({ username, password }: LoginCredentials): Promise<L
 
     localStorage.setItem("access", access)
     localStorage.setItem("refresh", refresh)
+    localStorage.setItem("username", username)
 
     return { access, refresh }
 }
