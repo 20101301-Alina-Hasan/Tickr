@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
+import { Trash2, Save } from "lucide-react"
 import type { EditTaskFormProps } from "./interfaces"
 
 export const EditTaskForm = ({
@@ -12,8 +13,8 @@ export const EditTaskForm = ({
     onSave,
 }: EditTaskFormProps) => {
     return (
-        <Card className="z-0 -mt-6 ml-[1.55rem] -mr-[0.2rem] rounded-t-none border-t-0">
-            <CardContent className="p-4 space-y-6">
+        <Card className="z-0 -mt-6 ml-[1.6rem] -mr-[0.1rem] rounded-t-none border-t-0">
+            <CardContent className="p-6 pb-0 space-y-6">
                 <div className="space-y-2">
                     <Label>Title</Label>
                     <Input
@@ -54,12 +55,21 @@ export const EditTaskForm = ({
                         }
                     />
                 </div>
-                <div className="flex justify-between">
-                    <Button variant="destructive" onClick={onDelete} size="lg" className="hover:cursor-pointer">
-                        Delete
+                <div className="flex justify-end gap-3">
+                    <Button
+                        size="lg"
+                        onClick={onSave}
+                        className="hover:cursor-pointer"
+                    >
+                        <Save className="size-5" />
                     </Button>
-                    <Button onClick={onSave} size="lg" className="hover:cursor-pointer">
-                        Save
+                    <Button
+                        variant="destructive"
+                        size="lg"
+                        onClick={onDelete}
+                        className="hover:cursor-pointer"
+                    >
+                        <Trash2 className="size-5" />
                     </Button>
                 </div>
             </CardContent>
