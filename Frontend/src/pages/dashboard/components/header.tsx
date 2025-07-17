@@ -4,11 +4,14 @@ import { Separator } from "@/components/ui/separator"
 import { Plus, X } from "lucide-react"
 import type { HeaderProps, FilterType } from "./interfaces"
 
-export const Header = ({ filter, setFilter, showCreateForm, setShowCreateForm }: HeaderProps) => {
+export const Header = ({ username, filter, setFilter, showCreateForm, setShowCreateForm }: HeaderProps) => {
     return (
         <>
             <div className="flex flex-wrap items-center justify-between gap-2 mb-6">
-                <h1 className="text-3xl font-bold">Tasks</h1>
+                <div className="grid grid-cols-1">
+                    <div className="text-3xl font-bold">Hello, {username}</div>
+                    <div className="text-muted-foreground">Let’s tick off what’s next</div>
+                </div>
                 <div className="flex items-center gap-2">
                     <Select
                         value={filter}
