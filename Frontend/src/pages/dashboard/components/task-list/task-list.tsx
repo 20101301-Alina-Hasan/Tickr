@@ -2,7 +2,6 @@ import type { TaskListProps } from "@/lib/interfaces"
 import { TaskCard } from "./task-card"
 import { EditTaskForm } from "./edit-task-form"
 
-
 export const TaskList = ({
     tasks,
     filter,
