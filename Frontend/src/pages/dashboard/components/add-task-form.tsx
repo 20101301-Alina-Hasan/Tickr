@@ -46,7 +46,7 @@ export const AddTaskForm = ({
                         onChange={setNewDueDate}
                         label="Due Date"
                     />
-                    <Button onClick={onSubmit} disabled={isDisabled} className="w-full text-md" size="lg">
+                    <Button onClick={onSubmit} disabled={isDisabled} className="w-full text-md hover: cursor-pointer" size="lg">
                         Create
                     </Button>
                 </CardContent>
