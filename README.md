@@ -52,6 +52,7 @@ Clone the repository:
 1. Navigate to the Backend folder then, create and activate a virtual environment:
 
    ```bash
+   cd Backend
    python -m venv venv
    venv\Scripts\activate.bat
    ```
@@ -62,9 +63,10 @@ Clone the repository:
    pip install Django djangorestframework djangorestframework-simplejwt django-cors-headers
    ```
 
-3. Run database migrations:
+3. Navigate to to_do_app folder and Run database migrations:
 
    ```bash
+   cd to_do_app
    python manage.py migrate
    ```
 
