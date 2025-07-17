@@ -19,6 +19,7 @@ export const EditTaskForm = ({
                 <div className="space-y-2">
                     <Label>Title</Label>
                     <Input
+                        placeholder="What do you wanna do?"
                         value={task.title}
                         onChange={(e) =>
                             setTasks((prev) =>
@@ -32,6 +33,7 @@ export const EditTaskForm = ({
                 <div className="space-y-2">
                     <Label>Description</Label>
                     <Textarea
+                        placeholder="Add some details..."
                         value={task.description}
                         onChange={(e) =>
                             setTasks((prev) =>

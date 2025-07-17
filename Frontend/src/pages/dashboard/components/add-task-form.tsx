@@ -23,12 +23,12 @@ export const AddTaskForm = ({
 
     return (
         <>
-            <Card className="mb-6 animate-fade-in">
-                <CardContent className="p-4 space-y-3">
+            <Card className="">
+                <CardContent className="px-6  space-y-6">
                     <div className="space-y-2">
                         <Label>Title</Label>
                         <Input
-                            placeholder="Title"
+                            placeholder="What do you wanna do?"
                             value={newTitle}
                             onChange={(e) => setNewTitle(e.target.value)}
                         />
@@ -36,7 +36,7 @@ export const AddTaskForm = ({
                     <div className="space-y-2">
                         <Label>Description</Label>
                         <Textarea
-                            placeholder="Description"
+                            placeholder="Add some details..."
                             value={newDesc}
                             onChange={(e) => setNewDesc(e.target.value)}
                         />
@@ -46,7 +46,7 @@ export const AddTaskForm = ({
                         onChange={setNewDueDate}
                         label="Due Date"
                     />
-                    <Button onClick={onSubmit} disabled={isDisabled} className="w-full">
+                    <Button onClick={onSubmit} disabled={isDisabled} className="w-full text-md" size="lg">
                         Create
                     </Button>
                 </CardContent>
