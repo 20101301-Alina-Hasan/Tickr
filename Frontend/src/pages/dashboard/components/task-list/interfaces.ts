@@ -12,4 +12,5 @@ export interface EditTaskFormProps {
     setTasks: React.Dispatch<React.SetStateAction<Task[]>>
     onDelete: () => void
     onSave: () => void
+    onAnimate?: boolean
 }

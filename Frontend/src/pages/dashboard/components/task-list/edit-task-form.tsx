@@ -12,7 +12,7 @@ export const EditTaskForm = ({
     onSave,
 }: EditTaskFormProps) => {
     return (
-        <Card className="z-0 -mt-6 ml-[1.55rem] -mr-[0.2rem] rounded-t-none border-t-0 animate-slide-down">
+        <Card className="z-0 -mt-6 ml-[1.55rem] -mr-[0.2rem] rounded-t-none border-t-0">
             <CardContent className="p-4 space-y-6">
                 <div className="space-y-2">
                     <Label>Title</Label>
