@@ -8,8 +8,10 @@ export const Header = ({ username, filter, setFilter, showCreateForm, setShowCre
     return (
         <>
             <div className="flex flex-wrap items-center justify-between gap-2 mb-6">
-                <div className="grid grid-cols-1">
-                    <div className="text-3xl font-bold">Hello, {username}</div>
+                <div className="max-w-[60%] break-words">
+                    <div className="text-3xl font-bold leading-snug break-words">
+                        Hello, {username}
+                    </div>
                     <div className="text-muted-foreground">Let’s tick off what’s next</div>
                 </div>
                 <div className="flex items-center gap-2">
