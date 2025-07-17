@@ -14,6 +14,7 @@ Tickr is a full-stack To-Do application built with a Django-backend and React-fr
 - Toggle task completion status using the checkboxes.
 - Edit or delete tasks by clicking on a task to view details.
 - Filter tasks using the dropdown filter to see All, Pending, or Completed tasks.
+- Get real-time feedback on all task actions via toasts powered by Sonner
 - Logout when done to secure your session.
 
 ---
