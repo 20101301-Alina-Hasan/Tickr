@@ -36,7 +36,7 @@ export const TaskCard = ({ isMobile, task, isSelected, toggle, onSelect }: TaskC
 
     return (
         <Card
-            className={`min-h-64 flex flex-col justify-between cursor-pointer hover:border-primary transition-all ${isSelected ? "border-primary bg-accent text-accent-foreground scale-[1.01]" : ""} w-full min-w-0`}
+            className={`min-h-64 h-full w-full flex flex-col justify-between cursor-pointer hover:border-primary transition-all ${isSelected ? "border-primary bg-accent text-accent-foreground scale-[1.01]" : ""} w-full min-w-0`}
             onClick={onSelect}
         >
             <CardContent className="flex flex-col h-full p-4">
