@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
 import type { TaskCardProps } from "./interfaces"
+import { CalendarFold } from "lucide-react"
 
 export const TaskCard = ({ isMobile, task, isSelected, toggle, onSelect }: TaskCardProps) => {
     if (isMobile) {
@@ -49,16 +50,12 @@ export const TaskCard = ({ isMobile, task, isSelected, toggle, onSelect }: TaskC
                         className={`w-5 h-5 hover:cursor-pointer ${isSelected ? "ring-1 ring-accent" : ""}`}
                     />
                 </div>
-                <div className="flex-1 text-sm text-gray-600 mb-2 overflow-hidden"
-                    style={{
-                        display: "-webkit-box",
-                        WebkitLineClamp: 4,
-                        WebkitBoxOrient: "vertical"
-                    }}>
+                <div className="flex-1 text-sm text-gray-600 mb-2 overflow-hidden text-ellipsis">
                     {task.description}
                 </div>
-                <div className="text-xs text-muted-foreground mt-auto">
-                    Due: {new Date(task.due_date).toLocaleDateString()}
+                <div className="flex items-center gap-1 text-xs text-muted-foreground mt-auto">
+                    <CalendarFold className="w-4 h-4" />
+                    <span>{new Date(task.due_date).toLocaleDateString()}</span>
                 </div>
             </CardContent>
         </Card>

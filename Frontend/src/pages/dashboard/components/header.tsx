@@ -34,7 +34,7 @@ export const Header = ({ username, filter, setFilter, showCreateForm, setShowCre
                         className="size-8 hover:cursor-pointer"
                         variant={showCreateForm ? "secondary" : "default"}
                     >
-                        {showCreateForm ? <X className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                        {showCreateForm ? <X className="size-4" /> : <Plus className="size-4" />}
                     </Button>
                 </div>
             </div>
