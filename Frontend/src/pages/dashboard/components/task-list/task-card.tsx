@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
 import type { TaskCardProps } from "./interfaces"
 import { CalendarFold } from "lucide-react"
+import { Separator } from "@/components/ui/separator"
 
 export const TaskCard = ({ isMobile, task, isSelected, toggle, onSelect }: TaskCardProps) => {
     if (isMobile) {
@@ -17,12 +18,9 @@ export const TaskCard = ({ isMobile, task, isSelected, toggle, onSelect }: TaskC
                                 checked={task.status === "COMPLETE"}
                                 onCheckedChange={() => toggle(task)}
                                 onClick={(e) => e.stopPropagation()}
-                                className={`w-5 h-5 hover:cursor-pointer ${isSelected ? "ring-1 ring-accent" : ""}`}
+                                className={`size-5 hover:cursor-pointer ${isSelected ? "ring-1 ring-accent" : ""}`}
                             />
-                            <div
-                                className={`font-medium truncate ${task.status === "COMPLETE" ? "line-through text-muted-foreground" : ""
-                                    }`}
-                            >
+                            <div className={`font-medium truncate ${task.status === "COMPLETE" ? "line-through text-muted-foreground" : ""}`}>
                                 {task.title}
                             </div>
                         </div>
@@ -40,21 +38,24 @@ export const TaskCard = ({ isMobile, task, isSelected, toggle, onSelect }: TaskC
             className={`min-h-64 h-full w-full flex flex-col justify-between cursor-pointer hover:border-primary transition-all ${isSelected ? "border-primary bg-accent text-accent-foreground scale-[1.01]" : ""} w-full min-w-0`}
             onClick={onSelect}
         >
-            <CardContent className="flex flex-col h-full p-4">
+            <CardContent className="flex flex-col h-64 p-6">
                 <div className="flex items-center justify-between mb-2">
-                    <div className="font-semibold text-lg truncate">{task.title}</div>
+                    <div className={`text-xl font-medium truncate ${task.status === "COMPLETE" ? "line-through text-muted-foreground" : ""}`}>
+                        {task.title}
+                    </div>
                     <Checkbox
                         checked={task.status === "COMPLETE"}
                         onCheckedChange={() => toggle(task)}
                         onClick={(e) => e.stopPropagation()}
-                        className={`w-5 h-5 hover:cursor-pointer ${isSelected ? "ring-1 ring-accent" : ""}`}
+                        className={`size-5 hover:cursor-pointer ${isSelected ? "ring-1 ring-accent" : ""}`}
                     />
                 </div>
-                <div className="flex-1 text-sm text-gray-600 mb-2 overflow-hidden text-ellipsis">
+                <Separator />
+                <div className="flex-1 text-sm text-gray-600 pt-2 pb-4 overflow-hidden text-ellipsis">
                     {task.description}
                 </div>
-                <div className="flex items-center gap-1 text-xs text-muted-foreground mt-auto">
-                    <CalendarFold className="w-4 h-4" />
+                <div className="flex items-center gap-1 text-xs text-muted-foreground justify-start mt-auto pt-8">
+                    <CalendarFold className="size-4" />
                     <span>{new Date(task.due_date).toLocaleDateString()}</span>
                 </div>
             </CardContent>
