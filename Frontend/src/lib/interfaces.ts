@@ -24,6 +24,7 @@ export interface Task {
 }
 
 export interface TaskListProps {
+    isMobile: boolean
     tasks: Task[]
     filter: "ALL" | "PENDING" | "COMPLETE"
     selectedTaskId: number | null

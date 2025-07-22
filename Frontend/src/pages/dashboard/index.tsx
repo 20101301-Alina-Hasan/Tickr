@@ -10,6 +10,7 @@ import {
 import { Header, AddTaskForm, TaskList } from "./components"
 import { Navbar } from "./components/navbar"
 import { toast } from "sonner"
+import { useIsMobile } from "@/lib/hooks/use-mobile"
 
 
 export const Dashboard = () => {
@@ -20,6 +21,8 @@ export const Dashboard = () => {
     const [newDesc, setNewDesc] = useState("")
     const [newDueDate, setNewDueDate] = useState("")
     const [filter, setFilter] = useState<"ALL" | "PENDING" | "COMPLETE">("ALL")
+
+    const isMobile = useIsMobile()
 
     const accessToken = localStorage.getItem("access")
 
@@ -94,7 +97,7 @@ export const Dashboard = () => {
     return (
         <>
             <Navbar />
-            <div className="max-w-2xl mx-auto p-6">
+            <div className={`mx-auto ${isMobile ? "max-w-2xl p-6" : "max-w-6xl py-6 px-12"}`}>
                 <Header
                     username={username!}
                     filter={filter}
@@ -112,6 +115,7 @@ export const Dashboard = () => {
                     onSubmit={add}
                 />
                 <TaskList
+                    isMobile={isMobile}
                     tasks={tasks}
                     filter={filter}
                     selectedTaskId={selectedTaskId}
@@ -122,7 +126,7 @@ export const Dashboard = () => {
                     destroy={destroy}
                     update={update}
                 />
-            </div>
+            </div >
         </>
     )
 }

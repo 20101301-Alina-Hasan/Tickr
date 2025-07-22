@@ -1,6 +1,7 @@
 import type { Task } from "@/lib/interfaces"
 
 export interface TaskCardProps {
+    isMobile: boolean
     task: Task
     isSelected: boolean
     toggle: (task: Task) => void
