@@ -3,8 +3,9 @@ import { Button } from "@/components/ui/button"
 import { CheckCheck, LogOut } from "lucide-react"
 import { toast } from "sonner"
 import { ToggleMode } from "@/components/common"
+import type { NavbarProps } from "./interfaces"
 
-export const Navbar = () => {
+export const Navbar = ({ isMobile }: NavbarProps) => {
     const navigate = useNavigate()
 
     const logout = () => {
@@ -15,19 +16,19 @@ export const Navbar = () => {
 
     return (
         <nav className="sticky bg-background top-0 z-50 border-b px-6 py-3 shadow-sm flex justify-between items-center">
-            <div className="flex-1" />
-            <div className="flex-1 flex justify-center items-center gap-2">
+            {!isMobile && <div className="flex-1" />}
+            <div className={`flex-1 flex items-center ${isMobile ? "justify-start gap-2" : "justify-center items-center gap-2"}`}>
                 <div className="size-7 flex items-center justify-center rounded-full bg-primary">
                     <CheckCheck className="size-4 text-primary-foreground" />
                 </div>
                 <span className="text-2xl font-bold">Tickr</span>
             </div>
-            <div className="flex-1 flex justify-end items-center gap-2">
+            <div className={`flex-1 flex justify-end items-center gap-2 ${!isMobile && "pr-6"}`}>
                 <ToggleMode />
                 <Button variant="outline" size="icon" className="hover:cursor-pointer" onClick={logout}>
                     <LogOut />
                 </Button>
             </div>
-        </nav>
+        </nav >
     )
 }

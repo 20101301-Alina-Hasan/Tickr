@@ -96,7 +96,7 @@ export const Dashboard = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar isMobile={isMobile} />
             <div className={`mx-auto py-12 ${isMobile ? "max-w-2xl px-6" : "max-w-6xl px-12"}`}>
                 <Header
                     username={username!}

@@ -20,3 +20,7 @@ export interface AddTaskFormProps {
     setShowCreateForm: (open: boolean) => void
     onSubmit: () => void
 }
+
+export interface NavbarProps {
+    isMobile: boolean
+}
