@@ -17,5 +17,6 @@ export interface AddTaskFormProps {
     newDueDate: string
     setNewDueDate: (val: string) => void
     showCreateForm: boolean
+    setShowCreateForm: (open: boolean) => void
     onSubmit: () => void
 }

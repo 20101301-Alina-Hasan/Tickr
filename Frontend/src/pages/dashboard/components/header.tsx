@@ -7,9 +7,9 @@ import type { HeaderProps, FilterType } from "./interfaces"
 export const Header = ({ username, filter, setFilter, showCreateForm, setShowCreateForm }: HeaderProps) => {
     return (
         <>
-            <div className="flex flex-wrap items-center justify-between gap-2 mb-6">
-                <div className="max-w-[60%] break-words">
-                    <div className="text-3xl font-bold leading-snug break-words">
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <div className="max-w-[80%] break-words gap-2">
+                    <div className="text-4xl font-bold leading-tight">
                         Hello, {username}
                     </div>
                     <div className="text-muted-foreground">Let’s tick off what’s next</div>
@@ -19,7 +19,7 @@ export const Header = ({ username, filter, setFilter, showCreateForm, setShowCre
                         value={filter}
                         onValueChange={(val) => setFilter(val as FilterType)}
                     >
-                        <SelectTrigger className="w-[130px]">
+                        <SelectTrigger className="w-[200px]">
                             <SelectValue placeholder="Filter" />
                         </SelectTrigger>
                         <SelectContent>
@@ -40,6 +40,5 @@ export const Header = ({ username, filter, setFilter, showCreateForm, setShowCre
             </div>
             <Separator className="my-4" />
         </>
-
     )
 }

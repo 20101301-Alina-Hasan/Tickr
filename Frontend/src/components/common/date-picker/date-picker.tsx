@@ -27,7 +27,7 @@ export const DatePicker = ({ value, onChange, label = "Due Date" }: DatePickerPr
     }, [value])
 
     return (
-        <div className="space-y-2">
+        <div className="space-y-3">
             <Label htmlFor="due-date">{label}</Label>
             <div className="relative flex gap-2">
                 <Input

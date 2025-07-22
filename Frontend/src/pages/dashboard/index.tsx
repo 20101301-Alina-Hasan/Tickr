@@ -114,6 +114,7 @@ export const Dashboard = () => {
                     newDueDate={newDueDate}
                     setNewDueDate={setNewDueDate}
                     showCreateForm={showCreateForm}
+                    setShowCreateForm={setShowCreateForm}
                     onSubmit={add}
                 />
                 <TaskList
