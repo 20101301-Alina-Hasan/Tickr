@@ -1,7 +1,7 @@
 import { createContext } from "react"
 import type { ThemeProviderState } from "../../components/wrapper/interfaces"
 
-export const initialState: ThemeProviderState = {
+const initialState: ThemeProviderState = {
     theme: "system",
     setTheme: () => null,
 }
