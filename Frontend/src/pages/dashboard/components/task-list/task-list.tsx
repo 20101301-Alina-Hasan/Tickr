@@ -14,7 +14,7 @@ export const TaskList = ({
     update,
 }: TaskListProps) => {
     return (
-        <div className="space-y-3">
+        <div className="space-y-2">
             {tasks
                 .filter((task) => filter === "ALL" || task.status === filter)
                 .map((task) => (

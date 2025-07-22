@@ -58,6 +58,7 @@ export const EditTaskForm = ({
                 </div>
                 <div className="flex justify-end gap-3">
                     <Button
+                        variant="default"
                         size="lg"
                         onClick={onSave}
                         className="hover:cursor-pointer"

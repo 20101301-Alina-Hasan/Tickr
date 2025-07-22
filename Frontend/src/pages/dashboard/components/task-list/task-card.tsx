@@ -6,8 +6,7 @@ export const TaskCard = ({ task, isSelected, toggle, onSelect }: TaskCardProps) 
     return (
         <div className="flex items-center gap-2">
             <Card
-                className={`flex-1 cursor-pointer hover:border-primary z-10 ${isSelected ? "border-primary bg-accent-foreground text-accent scale-[1.01] rounded-b-none" : ""
-                    }`}
+                className={`flex-1 cursor-pointer hover:border-primary z-10 ${isSelected ? "border-primary bg-accent text-accent-foreground scale-[1.01] rounded-b-none" : ""}`}
                 onClick={onSelect}
             >
                 <CardContent className="flex justify-between items-center">
