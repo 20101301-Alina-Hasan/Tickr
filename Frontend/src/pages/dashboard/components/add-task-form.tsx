@@ -23,7 +23,7 @@ export const AddTaskForm = ({
 
     return (
         <>
-            <Card className="">
+            <Card>
                 <CardContent className="px-6  space-y-6">
                     <div className="space-y-2">
                         <Label>Title</Label>

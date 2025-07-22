@@ -97,7 +97,7 @@ export const SignupForm: React.FC<React.ComponentProps<"div">> = ({
                                 <p className="text-destructive text-sm -mt-2">{error}</p>
                             )}
                             <div className="flex flex-col gap-3">
-                                <Button type="submit" className="w-full">
+                                <Button type="submit" className="hover:cursor-pointer w-full">
                                     Sign Up
                                 </Button>
                             </div>
