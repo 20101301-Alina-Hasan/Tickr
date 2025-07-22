@@ -105,7 +105,9 @@ export const Dashboard = () => {
                     showCreateForm={showCreateForm}
                     setShowCreateForm={setShowCreateForm}
                 />
-                <AddTaskForm newTitle={newTitle}
+                <AddTaskForm
+                    isMobile={isMobile}
+                    newTitle={newTitle}
                     setNewTitle={setNewTitle}
                     newDesc={newDesc}
                     setNewDesc={setNewDesc}

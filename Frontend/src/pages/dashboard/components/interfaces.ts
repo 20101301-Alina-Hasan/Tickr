@@ -9,6 +9,7 @@ export interface HeaderProps {
 }
 
 export interface AddTaskFormProps {
+    isMobile: boolean
     newTitle: string
     setNewTitle: (val: string) => void
     newDesc: string

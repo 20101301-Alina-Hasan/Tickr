@@ -4,10 +4,11 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
-import type { AddTaskFormProps } from "./interfaces"
 import { Separator } from "@/components/ui/separator"
+import type { AddTaskFormProps } from "./interfaces"
 
 export const AddTaskForm = ({
+    isMobile,
     newTitle,
     setNewTitle,
     newDesc,

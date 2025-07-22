@@ -14,7 +14,7 @@ export const Navbar = () => {
     }
 
     return (
-        <nav className="sticky bg-secondary top-0 z-50 border-b px-6 py-3 shadow-sm flex justify-between items-center">
+        <nav className="sticky bg-background top-0 z-50 border-b px-6 py-3 shadow-sm flex justify-between items-center">
             <div className="flex-1" />
             <div className="flex-1 flex justify-center items-center gap-2">
                 <div className="size-7 flex items-center justify-center rounded-full bg-primary">
