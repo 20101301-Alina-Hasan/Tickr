@@ -14,8 +14,8 @@ export const Navbar = () => {
 
     return (<nav className="sticky top-0 z-50 bg-white border-b px-6 py-3 shadow-sm flex justify-between items-center">
         <div className="flex-1 flex justify-center items-center gap-2">
-            <div className="size-8 flex items-center justify-center ring-2 ring-border rounded-md">
-                <CheckCheck className="size-4 text-primary" />
+            <div className="size-6 flex items-center justify-center ring-2 rounded-full bg-primary">
+                <CheckCheck className="size-4 text-accent" />
             </div>
             <span className="text-2xl font-bold">Tickr</span>
         </div>
